@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://www.monadressip.be/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://api.ipify.org" crossorigin>
+  <link rel="preconnect" href="https://api64.ipify.org" crossorigin>
+  <link rel="preconnect" href="https://ipapi.co" crossorigin>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8441951769353078" crossorigin="anonymous"></script>
+
+  <!-- Default (overridden at runtime by JS based on language) -->
+  <title>MonAdresseIP.be | Vérifiez votre IP publique en Belgique</title>
+  <meta name="description" content="Découvrez votre adresse IP publique (IPv4 & IPv6) et votre localisation approximative en Belgique. Outil gratuit, rapide et indépendant." />
+
+  <!-- Open Graph / Twitter (updated by JS) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MonAdresseIP.be | Vérifiez votre IP publique" />
+  <meta property="og:description" content="Votre adresse IP publique, IPv4 & IPv6, et localisation approximative." />
+  <meta property="og:url" content="https://www.monadressip.be/" />
+  <meta property="og:locale" content="fr_BE" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --sub:#9aa4b2;
+      --accent:#3b82f6; --border:#1f2a44; --chip:#121a30;
+      --radius:16px; --tap:48px; --max:980px; --shadow:0 8px 24px rgba(2,6,23,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f8fb; --card:#fff; --text:#111827; --sub:#667085; --border:#e5e7ef; --chip:#f2f4f7; --shadow:0 8px 24px rgba(16,24,40,.10); }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font:500 16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;color:var(--text);background:var(--bg);-webkit-tap-highlight-color:transparent}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:auto;padding:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    header{position:sticky;top:0;z-index:50;background:color-mix(in oklab, var(--bg) 92%, transparent);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--border)}
+    .head{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#93b4ff,#3b82f6)}
+    .brand__name{font-weight:800;letter-spacing:.2px}
+    .nav-toggle{display:inline-grid;place-items:center;width:40px;height:40px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+    .hamb{width:20px;height:2px;background:currentColor;position:relative;border-radius:2px}
+    .hamb:before,.hamb:after{content:"";position:absolute;left:0;width:20px;height:2px;background:currentColor;border-radius:2px}
+    .hamb:before{top:-6px}.hamb:after{top:6px}
+    nav{display:none;flex-direction:column;gap:10px;padding-bottom:10px}
+    nav.open{display:flex}
+    nav a{padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--card)}
+    .lang{display:flex;gap:8px}
+    .lang button{min-width:64px;height:var(--tap);border-radius:12px;border:1px solid var(--border);background:var(--card);color:var(--text);font-weight:800}
+    .lang button[aria-current="true"]{outline:2px solid color-mix(in oklab, var(--accent) 40%, white)}
+    .hero{display:grid;gap:16px;margin-top:16px}
+    h1{font-size:clamp(22px,4.8vw,32px);line-height:1.15;margin:0}
+    h2{font-size:clamp(18px,4vw,24px);margin:0 0 6px}
+    .sub{color:var(--sub)}
+    .kpi{position:relative;border:1px solid var(--border);border-radius:14px;padding:14px}
+    .addr{font:700 18px/1.35 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-word}
+    .copy{position:absolute;right:10px;top:10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);height:40px;padding:0 12px;font-weight:800}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--chip);border:1px solid var(--border);padding:8px 10px;border-radius:999px;color:var(--sub);font-size:14px}
+    .section{margin-top:18px}
+    .grid{display:grid;gap:10px}
+    @media (min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr} .grid.cols-3{grid-template-columns:repeat(3,1fr)} nav{display:flex;flex-direction:row;gap:12px;padding:0} .nav-toggle{display:none} }
+    details.card{padding:0}
+    details>summary{list-style:none;padding:14px 16px;cursor:pointer;font-weight:800}
+    details>div{padding:0 16px 16px}
+    .sticky{position:sticky;bottom:env(safe-area-inset-bottom);z-index:40;margin:16px}
+    .bar{display:flex;gap:8px;padding:8px;border-radius:14px;background:color-mix(in oklab, var(--card) 96%, transparent);border:1px solid var(--border)}
+    .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:var(--text);min-height:var(--tap);font-weight:800;text-align:center}
+    .btn--primary{background:var(--accent);border-color:transparent;color:#fff}
+    footer{color:var(--sub);border-top:1px solid var(--border);margin-top:24px}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);background:#0f1a30;color:#fff;padding:10px 16px;border-radius:12px;opacity:0;transition:.2s;font-size:14px;font-weight:800}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .ad-slot{display:block;min-height:250px} /* réserve l'espace pour éviter CLS */
+    @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important;scroll-behavior:auto!important} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap head">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand__name">MonAdresseIP.be</div>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="hamb"></span></button>
+    </div>
+    <nav id="mainNav" class="wrap" aria-label="Navigation principale">
+      <a href="#ip" data-i18n="nav_ip">Mon IP</a>
+      <a href="#proteger" data-i18n="nav_protect">Protéger mon IP</a>
+      <a href="#outils" data-i18n="nav_tools">Outils</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <div class="lang" aria-label="Langue">
+        <button data-lang="fr" aria-current="true">FR</button>
+        <button data-lang="nl">NL</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section id="ip" class="hero">
+      <div class="card">
+        <h1 data-i18n="h1">Votre adresse IP publique</h1>
+        <p id="heroIntro" class="sub" data-i18n="subtitle">Découvrez immédiatement votre IPv4, IPv6 et localisation approximative en Belgique.</p>
+
+        <div class="kpi">
+          <h2 style="margin:0 0 6px 0" data-i18n="ipv4">IPv4</h2>
+          <div class="addr" id="ipv4" aria-live="polite" aria-atomic="true">•••</div>
+          <button class="copy" data-copy="ipv4" data-i18n="copy" aria-label="Copier IPv4">Copier</button>
+        </div>
+        <div class="kpi">
+          <h2 style="margin:0 0 6px 0" data-i18n="ipv6">IPv6</h2>
+          <div class="addr" id="ipv6" aria-live="polite" aria-atomic="true">•••</div>
+          <button class="copy" data-copy="ipv6" data-i18n="copy" aria-label="Copier IPv6">Copier</button>
+        </div>
+
+        <div class="chips" aria-label="Métadonnées">
+          <span class="chip"><span data-i18n="city">Ville</span> : <strong id="city">—</strong></span>
+          <span class="chip"><span data-i18n="region">Région</span> : <strong id="region">—</strong></span>
+          <span class="chip"><span data-i18n="country">Pays</span> : <strong id="country">—</strong></span>
+          <span class="chip"><span data-i18n="isp">ISP</span> : <strong id="isp">—</strong></span>
+        </div>
+      </div>
+
+      <!-- AdSense bloc (responsive) -->
+      <div class="card">
+        <ins class="adsbygoogle ad-slot"
+          data-ad-client="ca-pub-8441951769353078"
+          data-ad-slot="REPLACE_WITH_YOUR_SLOT"
+          data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      </div>
+    </section>
+
+    <section id="proteger" class="section">
+      <h2 data-i18n="why_title">Pourquoi protéger votre IP ?</h2>
+      <div class="grid cols-3">
+        <div class="card" data-i18n="why_1">Confidentialité renforcée contre le pistage publicitaire.</div>
+        <div class="card" data-i18n="why_2">Sécurité accrue sur les réseaux Wi-Fi publics.</div>
+        <div class="card" data-i18n="why_3">Accès à vos contenus en voyage.</div>
+      </div>
+    </section>
+
+    <section id="outils" class="section">
+      <h2 data-i18n="tools_title">Outils IP & sécurité</h2>
+      <div class="grid cols-2">
+        <a class="card" href="#"><h3 data-i18n="tool_iplookup">IP Look Up</h3><p data-i18n="tool_iplookup_p">Localisez une IP et ses informations associées.</p></a>
+        <a class="card" href="#"><h3 data-i18n="tool_hide">Hide My IP</h3><p data-i18n="tool_hide_p">Masquez votre IP en quelques clics via un serveur sécurisé.</p></a>
+        <a class="card" href="#"><h3 data-i18n="tool_compare">Comparatif VPN</h3><p data-i18n="tool_compare_p">Comparez les fournisseurs selon le prix, la vitesse et les fonctionnalités.</p></a>
+        <a class="card" href="#"><h3 data-i18n="tool_speed">Speed Test</h3><p data-i18n="tool_speed_p">Mesurez la vitesse et la stabilité de votre connexion.</p></a>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2 data-i18n="faq_title">Foire aux questions</h2>
+      <div class="grid">
+        <details class="card">
+          <summary data-i18n="faq_q1">Qu’est-ce qu’une adresse IP ?</summary>
+          <div data-i18n="faq_a1">Un identifiant numérique attribué par votre FAI pour router le trafic.</div>
+        </details>
+        <details class="card">
+          <summary data-i18n="faq_q2">Mon IP révèle-t-elle ma position exacte ?</summary>
+          <div data-i18n="faq_a2">Non, uniquement une zone approximative (ville/région), pas une adresse postale.</div>
+        </details>
+        <details class="card">
+          <summary data-i18n="faq_q3">Un VPN est-il légal en Belgique ?</summary>
+          <div data-i18n="faq_a3">Oui, son usage est légal. Respectez la loi et les conditions des services.</div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky CTA -->
+  <div class="sticky" aria-hidden="false">
+    <div class="bar">
+      <a class="btn btn--primary" href="#proteger" data-i18n="cta_hide">Cacher mon IP</a>
+      <a class="btn" href="#faq">FAQ</a>
+    </div>
+  </div>
+
+  <footer class="wrap" aria-label="Pied de page">
+    <p>© <span id="year"></span> MonAdresseIP.be — <span data-i18n="footer">Outil gratuit et indépendant. Non affilié aux autorités ou FAI.</span></p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- FAQ Schema placeholder (replaced by JS with localized version) -->
+  <script id="faq-jsonld" type="application/ld+json">{}</script>
+
+  <script>
+    /* ========= i18n ========= */
+    const I18N = {
+      fr: {
+        brand:"MonAdresseIP.be",
+        nav_ip:"Mon IP", nav_protect:"Protéger mon IP", nav_tools:"Outils", nav_faq:"FAQ",
+        h1:"Votre adresse IP publique",
+        subtitle:"Découvrez immédiatement votre IPv4, IPv6 et localisation approximative en Belgique.",
+        ipv4:"IPv4", ipv6:"IPv6", copy:"Copier",
+        city:"Ville", region:"Région", country:"Pays", isp:"ISP",
+        why_title:"Pourquoi protéger votre IP ?",
+        why_1:"Confidentialité renforcée contre le pistage publicitaire.",
+        why_2:"Sécurité accrue sur les réseaux Wi-Fi publics.",
+        why_3:"Accès à vos contenus en voyage.",
+        tools_title:"Outils IP & sécurité",
+        tool_iplookup:"IP Look Up", tool_iplookup_p:"Localisez une IP et ses informations associées.",
+        tool_hide:"Hide My IP", tool_hide_p:"Masquez votre IP en quelques clics via un serveur sécurisé.",
+        tool_compare:"Comparatif VPN", tool_compare_p:"Comparez les fournisseurs selon le prix, la vitesse et les fonctionnalités.",
+        tool_speed:"Speed Test", tool_speed_p:"Mesurez la vitesse et la stabilité de votre connexion.",
+        faq_title:"Foire aux questions",
+        faq_q1:"Qu’est-ce qu’une adresse IP ?", faq_a1:"Un identifiant numérique attribué par votre FAI pour router le trafic.",
+        faq_q2:"Mon IP révèle-t-elle ma position exacte ?", faq_a2:"Non, uniquement une zone approximative (ville/région), pas une adresse postale.",
+        faq_q3:"Un VPN est-il légal en Belgique ?", faq_a3:"Oui, son usage est légal. Respectez la loi et les conditions des services.",
+        cta_hide:"Cacher mon IP",
+        footer:"Outil gratuit et indépendant. Non affilié aux autorités ou FAI.",
+        toast_copy:"Copié !",
+        metaTitle:(city,country)=>`MonAdresseIP.be | Votre IP publique en ${country}${city?` (${city})`:""}`,
+        metaDesc:(city,country)=>`Découvrez votre adresse IP publique (IPv4 & IPv6) et votre localisation approximative en ${country}${city?` (${city})`:""}. Outil gratuit, rapide et indépendant.`
+      },
+      nl: {
+        brand:"MijnAdresIP.be",
+        nav_ip:"Mijn IP", nav_protect:"Mijn IP beschermen", nav_tools:"Tools", nav_faq:"FAQ",
+        h1:"Je publiek IP-adres",
+        subtitle:"Bekijk meteen je IPv4, IPv6 en benaderde locatie in België.",
+        ipv4:"IPv4", ipv6:"IPv6", copy:"Kopiëren",
+        city:"Stad", region:"Regio", country:"Land", isp:"ISP",
+        why_title:"Waarom je IP beschermen?",
+        why_1:"Sterkere privacy tegen advertentietracking.",
+        why_2:"Meer veiligheid op openbare wifi-netwerken.",
+        why_3:"Toegang tot je content op reis.",
+        tools_title:"IP- & beveiligingstools",
+        tool_iplookup:"IP Look Up", tool_iplookup_p:"Localiseer een IP en bekijk bijhorende info.",
+        tool_hide:"Hide My IP", tool_hide_p:"Verberg je IP in enkele klikken via een beveiligde server.",
+        tool_compare:"VPN-vergelijking", tool_compare_p:"Vergelijk providers op prijs, snelheid en functies.",
+        tool_speed:"Snelheidstest", tool_speed_p:"Meet de snelheid en stabiliteit van je verbinding.",
+        faq_title:"Veelgestelde vragen",
+        faq_q1:"Wat is een IP-adres?", faq_a1:"Een numerieke identificatie toegewezen door je ISP.",
+        faq_q2:"Toont mijn IP mijn exacte locatie?", faq_a2:"Nee, enkel een benaderde zone (stad/regio).",
+        faq_q3:"Is een VPN legaal in België?", faq_a3:"Ja, mits naleving van de wet.",
+        cta_hide:"Verberg mijn IP",
+        footer:"Gratis en onafhankelijk hulpmiddel. Niet gelieerd aan overheid of ISP’s.",
+        toast_copy:"Gekopieerd!",
+        metaTitle:(city,country)=>`MijnAdresIP.be | Je publieke IP in ${country}${city?` (${city})`:""}`,
+        metaDesc:(city,country)=>`Bekijk je publieke IP (IPv4 & IPv6) en benaderde locatie in ${country}${city?` (${city})`:""}. Gratis, snel en onafhankelijk.`
+      },
+      en: {
+        brand:"MyAddressIP.be",
+        nav_ip:"My IP", nav_protect:"Protect my IP", nav_tools:"Tools", nav_faq:"FAQ",
+        h1:"Your public IP address",
+        subtitle:"See your IPv4, IPv6 and approximate location in Belgium.",
+        ipv4:"IPv4", ipv6:"IPv6", copy:"Copy",
+        city:"City", region:"Region", country:"Country", isp:"ISP",
+        why_title:"Why protect your IP?",
+        why_1:"Stronger privacy against ad tracking.",
+        why_2:"Better security on public Wi-Fi.",
+        why_3:"Access your content while traveling.",
+        tools_title:"IP & security tools",
+        tool_iplookup:"IP Look Up", tool_iplookup_p:"Locate an IP and view its associated info.",
+        tool_hide:"Hide My IP", tool_hide_p:"Hide your IP in a few clicks via a secure server.",
+        tool_compare:"VPN Comparison", tool_compare_p:"Compare providers by price, speed and features.",
+        tool_speed:"Speed Test", tool_speed_p:"Measure the speed and stability of your connection.",
+        faq_title:"Frequently Asked Questions",
+        faq_q1:"What is an IP address?", faq_a1:"A numeric identifier assigned by your ISP.",
+        faq_q2:"Does my IP show my exact location?", faq_a2:"No, only an approximate area (city/region).",
+        faq_q3:"Is using a VPN legal in Belgium?", faq_a3:"Yes, as long as you comply with the law.",
+        cta_hide:"Hide my IP",
+        footer:"Free and independent tool. Not affiliated with public authorities or ISPs.",
+        toast_copy:"Copied!",
+        metaTitle:(city,country)=>`MyAddressIP.be | Your public IP in ${country}${city?` (${city})`:""}`,
+        metaDesc:(city,country)=>`Find your public IP (IPv4 & IPv6) and approximate location in ${country}${city?` (${city})`:""}. Free, fast and independent.`
+      }
+    };
+
+    const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+    const META = {
+      title: document.title,
+      desc: document.querySelector('meta[name="description"]'),
+      ogt: document.querySelector('meta[property="og:title"]'),
+      ogd: document.querySelector('meta[property="og:description"]'),
+      ogloc: document.querySelector('meta[property="og:locale"]'),
+    };
+
+    function detectLang(){
+      const l=((navigator.languages&&navigator.languages[0])||navigator.language||'fr').toLowerCase();
+      if(l.startsWith('nl')) return 'nl';
+      if(l.startsWith('en')) return 'en';
+      return 'fr';
+    }
+    let currentLang = detectLang();
+
+    function applyI18n(lang){
+      const t = I18N[lang] || I18N.fr;
+      document.documentElement.lang = (lang==='fr'?'fr-BE':(lang==='nl'?'nl-BE':'en'));
+      $$('[data-i18n]').forEach(n=>{
+        const k=n.getAttribute('data-i18n');
+        if(t[k]) n.innerHTML = t[k];
+      });
+      $$('.lang button').forEach(b=>b.setAttribute('aria-current', String(b.dataset.lang===lang)));
+      // metas dynamiques
+      const city = $('#city')?.textContent?.trim() || '';
+      const country = $('#country')?.textContent?.trim() || (lang==='nl'?'België':(lang==='en'?'Belgium':'Belgique'));
+      const title = t.metaTitle(city, country);
+      const desc = t.metaDesc(city, country);
+      document.title = title;
+      META.desc?.setAttribute('content', desc);
+      META.ogt?.setAttribute('content', title);
+      META.ogd?.setAttribute('content', desc);
+      META.ogloc?.setAttribute('content', lang==='fr'?'fr_BE':(lang==='nl'?'nl_BE':'en_US'));
+      // Brand (header/footer)
+      $('.brand__name').textContent = t.brand;
+      $('[data-i18n="footer"]').textContent = t.footer;
+      // Localized FAQ JSON-LD
+      injectFAQJSONLD(lang);
+    }
+
+    function injectFAQJSONLD(lang){
+      const t = I18N[lang] || I18N.fr;
+      const data = {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":t.faq_q1,"acceptedAnswer":{"@type":"Answer","text":t.faq_a1}},
+          {"@type":"Question","name":t.faq_q2,"acceptedAnswer":{"@type":"Answer","text":t.faq_a2}},
+          {"@type":"Question","name":t.faq_q3,"acceptedAnswer":{"@type":"Answer","text":t.faq_a3}}
+        ]
+      };
+      const node = document.getElementById('faq-jsonld');
+      node.textContent = JSON.stringify(data);
+    }
+
+    // UI: menu
+    navToggle.onclick = ()=> $('#mainNav').classList.toggle('open');
+
+    // Lang switchers
+    $$('.lang button').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        currentLang = b.dataset.lang;
+        applyI18n(currentLang);
+      });
+    });
+
+    // Toast
+    const toast = $('#toast');
+    function showToast(msg){ toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1600); }
+
+    // Copy
+    function wireCopy(){
+      $$('.copy').forEach(b=>b.addEventListener('click', async ()=>{
+        const id=b.getAttribute('data-copy'); const el=document.getElementById(id);
+        const txt=el?.textContent?.trim(); if(!txt||txt==='•••') return;
+        try{ await navigator.clipboard.writeText(txt); showToast((I18N[currentLang]||I18N.fr).toast_copy);}catch{}
+      }));
+    }
+
+    // IP + localisation
+    const setText=(el,txt)=>{ if(el){ el.textContent=txt; } };
+    async function getJSON(url){ const r=await fetch(url,{cache:'no-store'}); if(!r.ok) throw 0; return r.json(); }
+    async function detectIPsAndLocation(){
+      try{ const v4=await getJSON('https://api.ipify.org?format=json'); if(v4?.ip) setText($('#ipv4'),v4.ip); }catch{}
+      try{
+        const v6=await getJSON('https://api64.ipify.org?format=json'); if(v6?.ip){ setText($('#ipv6'),v6.ip); $('#ipv6').setAttribute('title', v6.ip); }
+      }catch{}
+      try{
+        const d=await getJSON('https://ipapi.co/json/');
+        if(d.city) setText($('#city'),d.city);
+        if(d.region) setText($('#region'),d.region);
+        if(d.country_name) setText($('#country'),d.country_name);
+        if(d.org) setText($('#isp'),d.org);
+        // Metas après data réelle
+        applyI18n(currentLang);
+        // Intro localisée
+        const t = I18N[currentLang]||I18N.fr;
+        const city=d.city||'', region=d.region||'', country=d.country_name||(currentLang==='nl'?'België':(currentLang==='en'?'Belgium':'Belgique'));
+        const intro = {
+          fr:`Vous semblez naviguer depuis <strong>${city||'—'}, ${region||'—'} (${country})</strong>.`,
+          nl:`Je lijkt te surfen vanuit <strong>${city||'—'}, ${region||'—'} (${country})</strong>.`,
+          en:`You appear to be browsing from <strong>${city||'—'}, ${region||'—'} (${country})</strong>.`
+        }[currentLang];
+        $('#heroIntro').innerHTML = intro;
+      }catch{
+        applyI18n(currentLang);
+      }
+    }
+
+    // Init
+    document.getElementById('year').textContent=new Date().getFullYear();
+    wireCopy();
+    applyI18n(currentLang);
+    detectIPsAndLocation();
+  </script>
+</body>
+</html>
