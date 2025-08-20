@@ -67,7 +67,22 @@
 
     /* Bannière VPN */
     .vpn-banner{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:999}
-    @media(max-width:1024px){.vpn-banner{display:none}}
+    @media(max-width:1024px){.vpn-banner{display:none !important}}
+
+    /* ✅ Fix mobile blancs */
+    html, body {
+      overflow-x: hidden;
+    }
+    .wrap, .card, .addr, .chips, .btn, img, iframe, .adsbygoogle {
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      box-sizing: border-box;
+    }
+    .adsbygoogle {
+      max-width: 100% !important;
+      height: auto !important;
+    }
   </style>
 </head>
 <body>
@@ -166,8 +181,6 @@
 
     <footer>
       <p>© <span id="year"></span> AdresseIP.be — Service gratuit et indépendant.</p>
-
-      <!-- Mots clés SEO multilingues -->
       <div class="muted" style="margin:20px 0; text-align:center; font-size:13px; line-height:1.6">
         Mon IP | Meine IP | Mi IP | IP'im | Móje IP | 我的 IP (简体字) | 我的 IP (繁体字) | 私のIP | Il Mio IP | IP Của Tôi | IP Saya | Мой IP | Meu IP | Mijn IP
       </div>
@@ -192,7 +205,6 @@
     const $=s=>document.querySelector(s);
     $('#year').textContent=new Date().getFullYear();
 
-    // Détection IP
     async function detect(){
       try{
         const [v4,v6,d]=await Promise.allSettled([
@@ -212,7 +224,6 @@
     }
     detect();
 
-    // Fonction copie
     function copyToClipboard(id, btn){
       const text=document.getElementById(id).textContent;
       navigator.clipboard.writeText(text).then(()=>{
