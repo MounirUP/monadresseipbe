@@ -14,7 +14,7 @@
 
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <!-- Title/Description optimisés -->
+  <!-- SEO -->
   <title>AdresseIP.be – Votre adresse IP publique (IPv4/IPv6)</title>
   <meta name="description" content="Découvrez en un clic votre adresse IP publique (IPv4/IPv6) et votre localisation approximative en Belgique. Service gratuit, rapide et indépendant." />
 
@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://api64.ipify.org" crossorigin>
   <link rel="preconnect" href="https://ipapi.co" crossorigin>
 
-  <!-- AdSense NPA (no cookies) -->
+  <!-- AdSense NPA (contextuel sans cookies) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8441951769353078" crossorigin="anonymous"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
@@ -51,35 +51,20 @@
     *{box-sizing:border-box} body{margin:0;font:500 16px/1.6 system-ui,Roboto,Inter,Helvetica,Arial;color:var(--text);background:var(--bg)}
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:var(--max);margin:auto;padding:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-    header{position:sticky;top:0;z-index:40;background:color-mix(in oklab, var(--bg) 92%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
-    .head{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#93b4ff,#3b82f6)}
-    .nav-toggle{display:inline-grid;place-items:center;width:40px;height:40px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
-    .hamb{width:20px;height:2px;background:currentColor;position:relative}
-    .hamb:before,.hamb:after{content:"";position:absolute;left:0;width:20px;height:2px;background:currentColor}
-    .hamb:before{top:-6px}.hamb:after{top:6px}
-    nav{display:none;flex-direction:column;gap:10px;padding-bottom:10px}
-    nav.open{display:flex}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
     .hero{display:grid;gap:16px;margin-top:16px}
     .addr{font:700 18px/1.35 ui-monospace,Consolas,monospace;word-break:break-word}
     .copy{margin-top:8px;padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
     .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);background:#0f1a30;color:#fff;padding:10px 16px;border-radius:12px;opacity:0;transition:.2s;font-size:14px;font-weight:800;z-index:50}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-    .cta-nord{margin-top:20px;text-align:center}
-    .cta-nord p{margin:8px 0;color:var(--muted)}
-    .cta-nord a.btn{display:inline-block;margin-top:10px;padding:10px 18px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;text-decoration:none}
+    .cta-nord{text-align:center}
+    .cta-nord h2{margin-top:0}
+    .cta-nord a.btn{display:inline-block;margin:10px 0;padding:12px 20px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;text-decoration:none}
+    .cta-nord img{margin:10px 0;max-width:100%;height:auto}
+    footer{color:var(--muted);text-align:center;margin-top:20px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap head">
-      <div class="brand"><div class="logo"></div><div class="brand__name">AdresseIP.be</div></div>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span class="hamb"></span></button>
-    </div>
-  </header>
-
   <main class="wrap">
     <section id="ip" class="hero">
       <div class="card">
@@ -106,7 +91,7 @@
         </div>
       </div>
 
-      <!-- Bloc pub -->
+      <!-- Adsense bloc -->
       <div class="card">
         <ins class="adsbygoogle"
           style="display:block"
@@ -116,18 +101,32 @@
         <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
       </div>
 
-      <!-- Bannière NordVPN -->
+      <!-- Bloc NordVPN optimisé -->
       <div class="card cta-nord">
-        <p><strong>Protégez votre IP :</strong> masquez-la en un clic avec NordVPN.</p>
-        <a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">Essayer NordVPN</a>
-        <p><img src="https://media.go2speed.org/brand/files/nordvpn/15/20160415073645-728x90v12.gif" alt="NordVPN" width="100%" /></p>
-        <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=110&aff_id=129910" width="0" height="0" alt="" style="position:absolute;visibility:hidden;border:0" />
-        <p style="font-size:13px;color:var(--muted)">Lien affilié : nous pouvons toucher une commission si vous achetez via ce lien, sans coût supplémentaire.</p>
+        <h2>Protéger mon IP</h2>
+        <p><strong>Masquez votre IP en un clic</strong> avec NordVPN (rapide, fiable, serveurs en Belgique).</p>
+
+        <!-- CTA principal -->
+        <a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">🔒 Hide my IP</a>
+
+        <!-- Bannière 728x90 -->
+        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910&file_id=110" target="_blank" rel="sponsored noopener">
+          <img src="https://media.go2speed.org/brand/files/nordvpn/15/20160415073645-728x90v12.gif" width="728" height="90" alt="NordVPN - Bannière 728x90" />
+        </a>
+        <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=110&aff_id=129910" width="0" height="0" style="position:absolute;visibility:hidden;border:0" alt="" />
+
+        <!-- Bannière 300x250 -->
+        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910&file_id=100" target="_blank" rel="sponsored noopener">
+          <img src="https://media.go2speed.org/brand/files/nordvpn/15/20160415073048-300x250v4.gif" width="300" height="250" alt="NordVPN - Bannière 300x250" />
+        </a>
+        <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=100&aff_id=129910" width="0" height="0" style="position:absolute;visibility:hidden;border:0" alt="" />
+
+        <p style="font-size:13px;color:var(--muted)">Lien affilié : nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
       </div>
     </section>
   </main>
 
-  <footer class="wrap"><p>© <span id="year"></span> AdresseIP.be — Outil gratuit et indépendant.</p></footer>
+  <footer><p>© <span id="year"></span> AdresseIP.be — Outil gratuit et indépendant.</p></footer>
 
   <div id="toast" class="toast"></div>
 
@@ -135,16 +134,6 @@
   <script defer>
     const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
     $('#year').textContent=new Date().getFullYear();
-
-    // Menu
-    navToggle.onclick=()=>{
-      const nav=$('nav');
-      const isOpen=nav.classList.toggle('open');
-      navToggle.setAttribute("aria-expanded", isOpen);
-    };
-
-    // Toast
-    function showToast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600);}
 
     // Copie fiable
     async function copyText(txt){
@@ -160,6 +149,9 @@
       const id=b.getAttribute('data-copy');const txt=$('#'+id)?.textContent?.trim();
       if(txt&&txt!=="•••") copyText(txt);
     }));
+
+    // Toast
+    function showToast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600);}
 
     // Détection IP
     async function detect(){
