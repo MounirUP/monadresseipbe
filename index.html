@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f172a" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="MonAdresseIP.be" />
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,11 +21,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'G-ZDZ44F8TQS');
   </script>
   
-   <!-- Favicon cadenas -->
+  <!-- Favicon cadenas -->
   <link rel="icon" href="https://favicon.io/emoji-favicons/locked/32.png" type="image/png">
   
   <!-- Canonical + hreflang -->
@@ -33,9 +34,9 @@
   <link rel="alternate" href="https://monadresseip.be/en/" hreflang="en" />
   <link rel="alternate" href="https://monadresseip.be/" hreflang="x-default" />
 
-  <!-- SEO -->
-  <title>Quelle est mon adresse IP ? IPv4, IPv6 & Localisation – MonAdresseIP.be</title>
-  <meta name="description" content="Découvrez instantanément votre adresse IP publique (IPv4/IPv6), votre localisation et votre FAI. Guide complet sur la confidentialité en ligne et comment masquer votre IP avec un VPN." />
+  <!-- SEO optimisé -->
+  <title>Mon Adresse IP – IPv4, IPv6 & Localisation</title>
+  <meta name="description" content="Découvrez votre adresse IP publique (IPv4/IPv6), votre localisation et votre FAI. Apprenez à masquer votre IP avec un VPN." />
 
   <!-- OpenGraph / Twitter -->
   <meta property="og:type" content="website" />
@@ -47,63 +48,14 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://monadresseip.be/preview.png" />
 
+  <!-- Sitemap + robots -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://monadresseip.be/sitemap.xml" />
+
   <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8441951769353078" 
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8441951769353078" crossorigin="anonymous"></script>
 
-  <!-- Styles -->
-  <style>
-    :root{
-      --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#9aa4b2; --accent:#3b82f6;
-      --border:#1f2a44; --chip:#121a30; --radius:16px; --max:960px; --shadow:0 8px 24px rgba(2,6,23,.35);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f8fb; --card:#fff; --text:#111827; --muted:#667085; --border:#e5e7ef; --chip:#f2f4f7; --shadow:0 8px 24px rgba(16,24,40,.10); }
-    }
-    body{margin:0;font:500 16px/1.6 system-ui,Roboto,Inter,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:auto;padding:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
-    h1,h2,h3{margin:0 0 10px}
-    .addr{font:700 20px/1.35 ui-monospace,Consolas,monospace;word-break:break-word}
-    .chips{margin:12px 0;display:flex;flex-wrap:wrap;gap:8px}
-    .chip{background:var(--chip);padding:6px 12px;border-radius:20px;font-size:14px}
-    .btn{display:inline-block;margin:12px 0;padding:14px 24px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;text-align:center}
-    .btn:hover{opacity:.9}
-    .muted{color:var(--muted);font-size:14px}
-    footer{color:var(--muted);text-align:center;margin:30px 0}
-    /* Sticky CTA mobile */
-    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--accent);color:#fff;font-weight:700;text-align:center;padding:14px;z-index:1000;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
-    @media(min-width:768px){.sticky-cta{display:none}}
-
-    /* Copy button */
-    .copy-btn{display:inline-block;margin-left:8px;padding:4px 8px;font-size:14px;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;border:none;transition:all .2s}
-    .copy-btn:hover{opacity:.85}
-    .copied{background:#16a34a !important}
-
-    /* CTA grid */
-    .grid-3{display:grid;gap:20px;grid-template-columns:repeat(3,1fr);}
-    @media(max-width:768px){.grid-3{grid-template-columns:1fr}}
-
-    /* Bannière VPN */
-    .vpn-banner{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:999}
-    @media(max-width:1024px){.vpn-banner{display:none !important}}
-
-    /* ✅ Fix mobile blancs */
-    html, body {
-      overflow-x: hidden;
-    }
-    .wrap, .card, .addr, .chips, .btn, img, iframe, .adsbygoogle {
-      max-width: 100%;
-      overflow-wrap: break-word;
-      word-break: break-word;
-      box-sizing: border-box;
-    }
-    .adsbygoogle {
-      max-width: 100% !important;
-      height: auto !important;
-    }
-  </style>
+  <!-- Styles externes -->
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <main class="wrap">
@@ -116,13 +68,13 @@
       <h2>IPv4</h2>
       <div class="addr">
         <span id="ipv4">•••</span>
-        <button class="copy-btn" onclick="copyToClipboard('ipv4', this)">Copier</button>
+        <button class="copy-btn" onclick="copyToClipboard('ipv4', this)" aria-label="Copier IPv4">Copier</button>
       </div>
 
       <h2>IPv6</h2>
       <div class="addr">
         <span id="ipv6">•••</span>
-        <button class="copy-btn" onclick="copyToClipboard('ipv6', this)">Copier</button>
+        <button class="copy-btn" onclick="copyToClipboard('ipv6', this)" aria-label="Copier IPv6">Copier</button>
       </div>
 
       <div class="chips">
@@ -139,12 +91,11 @@
       <p class="muted">Offre limitée : 75% de réduction + 3 mois gratuits</p>
     </section>
 
-      <!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59LHQ7VR"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- CTA inspirés du leader (déplacés avant les articles) -->
+    <!-- CTA grid -->
     <section class="grid-3">
       <div class="card">
         <h2>🔐 La sécurité</h2>
@@ -165,45 +116,36 @@
       </div>
     </section>
 
-    <!-- Articles SEO optimisés -->
+    <!-- Articles SEO -->
     <section>
       <h2>Articles récents sur la confidentialité et les adresses IP</h2>
 
       <div class="card">
-        <h3><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">Qu’est-ce qu’une adresse IP ?</a></h3>
+        <h3><a href="/article-adresse-ip">Qu’est-ce qu’une adresse IP ?</a></h3>
         <p>Découvrez le rôle de votre IP, ses différents types (IPv4/IPv6), la différence entre IP fixe et dynamique, et comment les FAI belges attribuent vos adresses.</p>
       </div>
 
       <div class="card">
-        <h3><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">Comment localiser une adresse IP ?</a></h3>
+        <h3><a href="/article-localiser-ip">Comment localiser une adresse IP ?</a></h3>
         <p>Guide pratique sur la <strong>géolocalisation IP</strong> : fonctionnement, outils (WHOIS, API), limites (localisation approximative), et cas concrets en Belgique.</p>
       </div>
 
       <div class="card">
-        <h3><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">Comment obtenir une adresse IP belge ?</a></h3>
+        <h3><a href="/article-ip-belge">Comment obtenir une adresse IP belge ?</a></h3>
         <p>Solutions pour les expatriés et voyageurs : VPN avec serveurs en Belgique, proxy, TOR. Comparatif des avantages et inconvénients pour accéder à vos contenus belges.</p>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">VPN en Belgique : lequel choisir en 2025 ?</a></h3>
-        <p>Comparatif des meilleurs VPN en Belgique : sécurité, vitesse, serveurs disponibles, accès à RTBF Auvio et Netflix BE. Bonus : VPN gratuit vs VPN premium.</p>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">Changer d’adresse IP : mode d’emploi</a></h3>
-        <p>Comment changer votre adresse IP publique en Belgique ? Redémarrage de modem, demande d’IP fixe à Proximus/VOO, ou utilisation d’un VPN pour contourner un blocage.</p>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">Comment cacher son adresse IP ?</a></h3>
-        <p>Découvrez comment masquer votre IP avec un VPN, un proxy ou le réseau Tor. Astuces pour protéger votre vie privée et naviguer de manière anonyme en Belgique.</p>
       </div>
     </section>
 
     <footer>
       <p>© <span id="year"></span> MonAdresseIP.be — Service gratuit et indépendant.</p>
       <div class="muted" style="margin:20px 0; text-align:center; font-size:13px; line-height:1.6">
-        Mon IP | Meine IP | Mi IP | IP'im | Móje IP | 我的 IP (简体字) | 我的 IP (繁体字) | 私のIP | Il Mio IP | IP Của Tôi | IP Saya | Мой IP | Meu IP | Mijn IP
+        Mon IP | Meine IP | Mi IP | IP'im | 私のIP | Il Mio IP | Мой IP | Mijn IP
+      </div>
+      <!-- Profils sociaux -->
+      <div>
+        <a href="https://facebook.com/monadresseip" target="_blank">Facebook</a> | 
+        <a href="https://twitter.com/monadresseip" target="_blank">Twitter</a> | 
+        <a href="https://www.linkedin.com/company/monadresseip/" target="_blank">LinkedIn</a>
       </div>
     </footer>
   </main>
@@ -216,9 +158,9 @@
   <!-- Bannière latérale NordVPN -->
   <div class="vpn-banner">
     <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910&file_id=350" target="_blank" rel="sponsored noopener">
-      <img src="https://media.go2speed.org/brand/files/nordvpn/15/20190826110237-pirate-bay-120x600-1.gif" width="120" height="600" border="0" />
+      <img src="https://media.go2speed.org/brand/files/nordvpn/15/20190826110237-pirate-bay-120x600-1.gif" width="120" height="600" alt="Annonce NordVPN" loading="lazy" />
     </a>
-    <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=350&aff_id=129910" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
+    <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=350&aff_id=129910" width="0" height="0" alt="Tracking Pixel" style="position:absolute;visibility:hidden;" />
   </div>
 
   <!-- Script -->
@@ -247,49 +189,23 @@
 
     function copyToClipboard(id, btn){
       const text=document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text).then(()=>{
-        btn.textContent="✔ Copié";
-        btn.classList.add("copied");
-        setTimeout(()=>{
-          btn.textContent="Copier";
-          btn.classList.remove("copied");
-        },2000);
-      });
-    }
-  </script>
-
-  <!-- FAQ Schema SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Quelle est mon adresse IP ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Votre adresse IP est un identifiant unique attribué par votre fournisseur d’accès. Elle peut être IPv4 ou IPv6."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Comment cacher mon IP ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Vous pouvez masquer votre IP en utilisant un VPN, un proxy ou le réseau Tor. Le VPN reste la solution la plus simple et sécurisée."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Est-il légal d’utiliser un VPN en Belgique ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui, l’usage d’un VPN est légal en Belgique. Il permet de protéger vos données et contourner les restrictions géographiques."
-        }
+      if(!navigator.clipboard){
+        const textarea=document.createElement("textarea");
+        textarea.value=text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      } else {
+        navigator.clipboard.writeText(text);
       }
-    ]
-  }
+      btn.textContent="✔ Copié";
+      btn.classList.add("copied");
+      setTimeout(()=>{
+        btn.textContent="Copier";
+        btn.classList.remove("copied");
+      },2000);
+    }
   </script>
 </body>
 </html>
