@@ -8,45 +8,23 @@
   <title>Mon adresse IP – IPv4, IPv6 & Outils de confidentialité | AdresseIP.be</title>
   <meta name="description" content="Découvrez votre adresse IP publique (IPv4/IPv6), votre localisation et votre FAI. Utilisez nos outils : test de vitesse, blacklist, comparatif VPN et conseils sécurité." />
 
-  <!-- Canonical & hreflang -->
-  <link rel="canonical" href="https://www.adresseip.be/" />
-  <link rel="alternate" hreflang="fr-BE" href="https://www.adresseip.be/" />
-  <link rel="alternate" hreflang="nl-BE" href="https://www.adresseip.be/nl/" />
-  <link rel="alternate" hreflang="en" href="https://www.adresseip.be/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.adresseip.be/" />
-
-  <!-- OpenGraph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mon adresse IP publique – IPv4 & IPv6" />
-  <meta property="og:description" content="Découvrez votre IP, votre FAI et protégez votre vie privée avec un VPN." />
-  <meta property="og:image" content="https://www.adresseip.be/preview.png" />
-  <meta property="og:locale" content="fr_BE" />
-
   <!-- Styles -->
   <style>
-    :root{
-      --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#9aa4b2; --accent:#3b82f6;
-      --border:#1f2a44; --chip:#121a30; --radius:16px; --max:1000px; --shadow:0 6px 20px rgba(0,0,0,.3);
-    }
-    @media(prefers-color-scheme: light){
-      :root{ --bg:#f7f8fb; --card:#fff; --text:#111827; --muted:#667085; --border:#e5e7ef; --chip:#f2f4f7; --shadow:0 6px 20px rgba(0,0,0,.1);}
-    }
+    :root{ --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#9aa4b2; --accent:#3b82f6;
+      --border:#1f2a44; --chip:#121a30; --radius:16px; --max:1000px; --shadow:0 6px 20px rgba(0,0,0,.3);}
     body{margin:0;font:500 16px/1.6 system-ui,Roboto,Inter,Helvetica,Arial;color:var(--text);background:var(--bg)}
     .wrap{max-width:var(--max);margin:auto;padding:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:20px}
     h1,h2,h3{margin:0 0 12px}
-    .addr{font:700 20px/1.35 ui-monospace,Consolas,monospace;word-break:break-word}
+    .addr{font:700 20px/1.35 ui-monospace,Consolas,monospace;word-break:break-word;display:inline-block}
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
     .chip{background:var(--chip);padding:6px 12px;border-radius:20px;font-size:14px}
-    .btn{display:inline-block;padding:14px 24px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;text-align:center}
+    .btn{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;text-align:center;cursor:pointer}
     .btn:hover{opacity:.9}
     .muted{color:var(--muted);font-size:14px}
+    .copy-btn{margin-left:8px;font-size:13px;background:var(--chip);padding:4px 8px;border-radius:6px;cursor:pointer}
     footer{color:var(--muted);text-align:center;margin:30px 0}
-    .grid{display:grid;gap:20px}
-    .grid-2{grid-template-columns:1fr 1fr}
-    @media(max-width:768px){.grid-2{grid-template-columns:1fr}}
-    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--accent);color:#fff;font-weight:700;text-align:center;padding:14px;z-index:1000}
-    @media(min-width:768px){.sticky-cta{display:none}}
+    .banner{margin:20px auto;text-align:center}
   </style>
 </head>
 <body>
@@ -56,10 +34,18 @@
     <section class="card">
       <h1>Votre adresse IP publique</h1>
       <p class="muted">Découvrez instantanément votre IPv4, IPv6 et votre localisation.</p>
+
       <h2>IPv4</h2>
-      <div id="ipv4" class="addr">•••</div>
+      <div>
+        <span id="ipv4" class="addr">•••</span>
+        <button class="copy-btn" onclick="copyToClipboard('#ipv4')">📋 Copier</button>
+      </div>
+
       <h2>IPv6</h2>
-      <div id="ipv6" class="addr">•••</div>
+      <div>
+        <span id="ipv6" class="addr">•••</span>
+        <button class="copy-btn" onclick="copyToClipboard('#ipv6')">📋 Copier</button>
+      </div>
 
       <div class="chips">
         <span class="chip">📍 <span id="city">—</span></span>
@@ -74,62 +60,24 @@
       <p class="muted">Offre limitée : 75% de réduction + 3 mois gratuits</p>
     </section>
 
-    <!-- Sections inspirées du leader -->
-    <section class="grid grid-2">
-      <div class="card">
-        <h2>🔐 Sécurité</h2>
-        <p>Protégez-vous contre les pirates sur les réseaux Wi-Fi publics et les connexions non sécurisées.</p>
-        <a class="btn" href="#">Je veux de la sécurité</a>
-      </div>
-      <div class="card">
-        <h2>🕵️ Confidentialité</h2>
-        <p>Évitez le pistage par votre FAI, votre gouvernement et les annonceurs grâce à un VPN.</p>
-        <a class="btn" href="#">Je veux de la confidentialité</a>
-      </div>
-      <div class="card">
-        <h2>🌍 Accès</h2>
-        <p>Débloquez Netflix, Hulu et d’autres services de streaming depuis la Belgique.</p>
-        <a class="btn" href="#">Je veux plus d’accès</a>
-      </div>
-      <div class="card">
-        <h2>⚡ Vitesse</h2>
-        <p>Testez la rapidité de votre connexion Internet en un clic.</p>
-        <a class="btn" href="#">Lancer un speed-test</a>
-      </div>
-    </section>
-
-    <!-- Outils IP -->
-    <section>
-      <h2>Outils pratiques</h2>
-      <div class="grid grid-2">
-        <div class="card"><h3><a href="/ip-lookup">🔎 Recherche d’adresse IP</a></h3></div>
-        <div class="card"><h3><a href="/trace-email">📧 Trace email</a></h3></div>
-        <div class="card"><h3><a href="/blacklist-check">🚫 Vérif. blacklist</a></h3></div>
-        <div class="card"><h3><a href="/breach-check">🔑 Vérif. fuites</a></h3></div>
-      </div>
-    </section>
-
-    <!-- Articles -->
-    <section>
-      <h2>Articles récents</h2>
-      <div class="card"><h3><a href="/blog/quest-ce-quune-adresse-ip">Qu’est-ce qu’une adresse IP ?</a></h3></div>
-      <div class="card"><h3><a href="/blog/comment-cacher-mon-ip">Comment cacher mon IP ?</a></h3></div>
-      <div class="card"><h3><a href="/blog/vpn-belgique">Pourquoi utiliser un VPN en Belgique ?</a></h3></div>
-    </section>
+    <!-- Bannière NordVPN -->
+    <div class="banner">
+      <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910&file_id=350">
+        <img src="https://media.go2speed.org/brand/files/nordvpn/15/20190826110237-pirate-bay-120x600-1.gif" width="120" height="600" border="0" alt="NordVPN promo" />
+      </a>
+      <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=350&aff_id=129910" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
+    </div>
 
     <footer>
       <p>© <span id="year"></span> AdresseIP.be — Service gratuit et indépendant.</p>
-      <p><a href="/mentions-legales">Mentions légales</a> | <a href="/contact">Contact</a></p>
     </footer>
   </main>
-
-  <!-- Sticky CTA Mobile -->
-  <a class="sticky-cta" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank">🚀 Masquer mon IP (75% OFF)</a>
 
   <!-- Script -->
   <script>
     const $=s=>document.querySelector(s);
     $('#year').textContent=new Date().getFullYear();
+
     async function detect(){
       try{
         const [v4,v6,d]=await Promise.allSettled([
@@ -148,6 +96,13 @@
       }catch{}
     }
     detect();
+
+    function copyToClipboard(selector){
+      const text=document.querySelector(selector).textContent;
+      navigator.clipboard.writeText(text).then(()=>{
+        alert("Adresse copiée : " + text);
+      });
+    }
   </script>
 </body>
 </html>
