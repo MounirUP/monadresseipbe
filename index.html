@@ -5,26 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f172a" />
 
-  <title>Mon adresse IP – IPv4, IPv6 & Outils de confidentialité | AdresseIP.be</title>
-  <meta name="description" content="Découvrez votre adresse IP publique (IPv4/IPv6), votre localisation et votre FAI. Utilisez nos outils : test de vitesse, blacklist, comparatif VPN et conseils sécurité." />
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://www.adresseip.be/" />
+  <link rel="alternate" href="https://www.adresseip.be/" hreflang="fr-BE" />
+  <link rel="alternate" href="https://www.adresseip.be/nl/" hreflang="nl-BE" />
+  <link rel="alternate" href="https://www.adresseip.be/en/" hreflang="en" />
+  <link rel="alternate" href="https://www.adresseip.be/" hreflang="x-default" />
+
+  <!-- SEO -->
+  <title>Quelle est mon adresse IP ? IPv4, IPv6 & Localisation – AdresseIP.be</title>
+  <meta name="description" content="Découvrez instantanément votre adresse IP publique (IPv4/IPv6), votre localisation et votre FAI. Guide complet sur la confidentialité en ligne et comment masquer votre IP avec un VPN." />
+
+  <!-- OpenGraph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mon adresse IP publique – IPv4 & IPv6" />
+  <meta property="og:description" content="Votre adresse IP, votre localisation et votre FAI. Masquez-la avec un VPN." />
+  <meta property="og:url" content="https://www.adresseip.be/" />
+  <meta property="og:locale" content="fr_BE" />
+  <meta property="og:image" content="https://www.adresseip.be/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.adresseip.be/preview.png" />
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8441951769353078" crossorigin="anonymous"></script>
+  <script>(adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;</script>
 
   <!-- Styles -->
   <style>
-    :root{ --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#9aa4b2; --accent:#3b82f6;
-      --border:#1f2a44; --chip:#121a30; --radius:16px; --max:1000px; --shadow:0 6px 20px rgba(0,0,0,.3);}
+    :root{
+      --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#9aa4b2; --accent:#3b82f6;
+      --border:#1f2a44; --chip:#121a30; --radius:16px; --max:960px; --shadow:0 8px 24px rgba(2,6,23,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f8fb; --card:#fff; --text:#111827; --muted:#667085; --border:#e5e7ef; --chip:#f2f4f7; --shadow:0 8px 24px rgba(16,24,40,.10); }
+    }
     body{margin:0;font:500 16px/1.6 system-ui,Roboto,Inter,Helvetica,Arial;color:var(--text);background:var(--bg)}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:var(--max);margin:auto;padding:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:20px}
-    h1,h2,h3{margin:0 0 12px}
-    .addr{font:700 20px/1.35 ui-monospace,Consolas,monospace;word-break:break-word;display:inline-block}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+    h1,h2,h3{margin:0 0 10px}
+    .addr{font:700 20px/1.35 ui-monospace,Consolas,monospace;word-break:break-word}
+    .chips{margin:12px 0;display:flex;flex-wrap:wrap;gap:8px}
     .chip{background:var(--chip);padding:6px 12px;border-radius:20px;font-size:14px}
-    .btn{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;text-align:center;cursor:pointer}
+    .btn{display:inline-block;margin:12px 0;padding:14px 24px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;text-align:center}
     .btn:hover{opacity:.9}
     .muted{color:var(--muted);font-size:14px}
-    .copy-btn{margin-left:8px;font-size:13px;background:var(--chip);padding:4px 8px;border-radius:6px;cursor:pointer}
+    .ads{margin:20px 0;text-align:center}
     footer{color:var(--muted);text-align:center;margin:30px 0}
-    .banner{margin:20px auto;text-align:center}
+    /* Sticky CTA mobile */
+    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--accent);color:#fff;font-weight:700;text-align:center;padding:14px;z-index:1000;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
+    @media(min-width:768px){.sticky-cta{display:none}}
+
+    /* Copy button */
+    .copy-btn{display:inline-block;margin-left:8px;padding:4px 8px;font-size:14px;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;border:none;transition:all .2s}
+    .copy-btn:hover{opacity:.85}
+    .copied{background:#16a34a !important}
+
+    /* CTA grid */
+    .grid-3{display:grid;gap:20px;grid-template-columns:repeat(3,1fr);}
+    @media(max-width:768px){.grid-3{grid-template-columns:1fr}}
+
+    /* Bannière VPN */
+    .vpn-banner{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:999}
+    @media(max-width:1024px){.vpn-banner{display:none}}
   </style>
 </head>
 <body>
@@ -33,18 +76,18 @@
     <!-- Hero -->
     <section class="card">
       <h1>Votre adresse IP publique</h1>
-      <p class="muted">Découvrez instantanément votre IPv4, IPv6 et votre localisation.</p>
+      <p class="muted">Découvrez immédiatement votre IPv4, IPv6 et votre localisation.</p>
 
       <h2>IPv4</h2>
-      <div>
-        <span id="ipv4" class="addr">•••</span>
-        <button class="copy-btn" onclick="copyToClipboard('#ipv4')">📋 Copier</button>
+      <div class="addr">
+        <span id="ipv4">•••</span>
+        <button class="copy-btn" onclick="copyToClipboard('ipv4', this)">Copier</button>
       </div>
 
       <h2>IPv6</h2>
-      <div>
-        <span id="ipv6" class="addr">•••</span>
-        <button class="copy-btn" onclick="copyToClipboard('#ipv6')">📋 Copier</button>
+      <div class="addr">
+        <span id="ipv6">•••</span>
+        <button class="copy-btn" onclick="copyToClipboard('ipv6', this)">Copier</button>
       </div>
 
       <div class="chips">
@@ -54,30 +97,102 @@
         <span class="chip">FAI: <span id="isp">—</span></span>
       </div>
 
+      <!-- CTA NordVPN -->
       <a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">
-        🔒 Masquer mon IP avec NordVPN
+        🔒 Masquer mon IP maintenant
       </a>
       <p class="muted">Offre limitée : 75% de réduction + 3 mois gratuits</p>
+
+      <!-- Bloc AdSense -->
+      <div class="ads">
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-8441951769353078"
+          data-ad-slot="1234567890"
+          data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
     </section>
 
-    <!-- Bannière NordVPN -->
-    <div class="banner">
-      <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910&file_id=350">
-        <img src="https://media.go2speed.org/brand/files/nordvpn/15/20190826110237-pirate-bay-120x600-1.gif" width="120" height="600" border="0" alt="NordVPN promo" />
-      </a>
-      <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=350&aff_id=129910" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
-    </div>
+    <!-- Articles SEO -->
+    <section>
+      <h2>Articles récents sur la confidentialité</h2>
+
+      <div class="card">
+        <h3><a href="/blog/quest-ce-quune-adresse-ip">Qu’est-ce qu’une adresse IP ?</a></h3>
+        <p>Découvrez le rôle de votre IP, ses différents types (IPv4/IPv6) et comment elle influence votre navigation.</p>
+      </div>
+
+      <div class="ads">
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-8441951769353078"
+          data-ad-slot="2345678901"
+          data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="card">
+        <h3><a href="/blog/comment-cacher-mon-ip">Comment cacher mon IP ?</a></h3>
+        <p>Comparatif VPN, proxy et Tor pour protéger votre confidentialité.</p>
+      </div>
+
+      <div class="card">
+        <h3><a href="/blog/vpn-belgique">VPN en Belgique : pourquoi en 2025 ?</a></h3>
+        <p>Protégez vos données et accédez à vos contenus préférés avec un VPN fiable.</p>
+      </div>
+    </section>
+
+    <!-- CTA inspirés du leader -->
+    <section class="grid-3">
+      <div class="card">
+        <h2>🔐 La sécurité</h2>
+        <p>Je souhaite être protégé contre les pirates sur les réseaux Wi-Fi publics et autres réseaux non sécurisés.</p>
+        <a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">JE VEUX DE LA SÉCURITÉ</a>
+      </div>
+
+      <div class="card">
+        <h2>🕵️ La confidentialité</h2>
+        <p>Je veux empêcher mon gouvernement, mon FAI et les annonceurs de me pister.</p>
+        <a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">JE VEUX DE LA CONFIDENTIALITÉ</a>
+      </div>
+
+      <div class="card">
+        <h2>🌍 L’accès</h2>
+        <p>Je souhaite accéder à Netflix, Hulu et à d'autres services de streaming sans être bloqué.</p>
+        <a class="btn" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">JE VEUX DAVANTAGE D’ACCÈS</a>
+      </div>
+    </section>
 
     <footer>
       <p>© <span id="year"></span> AdresseIP.be — Service gratuit et indépendant.</p>
+
+      <!-- Mots clés SEO multilingues -->
+      <div class="muted" style="margin:20px 0; text-align:center; font-size:13px; line-height:1.6">
+        Mon IP | Meine IP | Mi IP | IP'im | Móje IP | 我的 IP (简体字) | 我的 IP (繁体字) | 私のIP | Il Mio IP | IP Của Tôi | IP Saya | Мой IP | Meu IP | Mijn IP
+      </div>
     </footer>
   </main>
+
+  <!-- Sticky CTA Mobile -->
+  <a class="sticky-cta" href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910" target="_blank" rel="sponsored noopener">
+    🚀 Masquer mon IP (75% OFF)
+  </a>
+
+  <!-- Bannière latérale NordVPN -->
+  <div class="vpn-banner">
+    <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129910&file_id=350" target="_blank" rel="sponsored noopener">
+      <img src="https://media.go2speed.org/brand/files/nordvpn/15/20190826110237-pirate-bay-120x600-1.gif" width="120" height="600" border="0" />
+    </a>
+    <img src="https://go.nordvpn.net/aff_i?offer_id=15&file_id=350&aff_id=129910" width="0" height="0" style="position:absolute;visibility:hidden;" border="0" />
+  </div>
 
   <!-- Script -->
   <script>
     const $=s=>document.querySelector(s);
     $('#year').textContent=new Date().getFullYear();
 
+    // Détection IP
     async function detect(){
       try{
         const [v4,v6,d]=await Promise.allSettled([
@@ -97,12 +212,52 @@
     }
     detect();
 
-    function copyToClipboard(selector){
-      const text=document.querySelector(selector).textContent;
+    // Fonction copie
+    function copyToClipboard(id, btn){
+      const text=document.getElementById(id).textContent;
       navigator.clipboard.writeText(text).then(()=>{
-        alert("Adresse copiée : " + text);
+        btn.textContent="✔ Copié";
+        btn.classList.add("copied");
+        setTimeout(()=>{
+          btn.textContent="Copier";
+          btn.classList.remove("copied");
+        },2000);
       });
     }
+  </script>
+
+  <!-- FAQ Schema SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quelle est mon adresse IP ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Votre adresse IP est un identifiant unique attribué par votre fournisseur d’accès. Elle peut être IPv4 ou IPv6."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment cacher mon IP ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vous pouvez masquer votre IP en utilisant un VPN, un proxy ou le réseau Tor. Le VPN reste la solution la plus simple et sécurisée."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Est-il légal d’utiliser un VPN en Belgique ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, l’usage d’un VPN est légal en Belgique. Il permet de protéger vos données et contourner les restrictions géographiques."
+        }
+      }
+    ]
+  }
   </script>
 </body>
 </html>
